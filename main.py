@@ -54,7 +54,7 @@ def figPCA(x, eigen = False, mean = False, com = 100):
     return x_pca, pca
 
 #components and C(punishment) are the adjustable parameters, by fine-tuning through accTest(), the aim is to achieve the highest accuracy. 
-def xSVM(components = 110, C = 1.5, kernel = 'rbf', gamma = 'scale'):
+def xSVM(x, y, components = 110, C = 1.5, kernel = 'rbf', gamma = 'scale'):
     x_train, x_test, y_train, y_test = train_test_split(x, y, test_size = 0.2, random_state = 42, stratify = y)
     x_train_pca, pca = figPCA(x_train, False, False, components)
     x_test_pca = pca.transform(x_test)
@@ -118,7 +118,7 @@ def imgEva(eva_path = './eva.jpg'):
 
 x, y = imgLoad()
 
-#acc, pca, svm = xSVM() #for train
+#acc, pca, svm = xSVM(x, y) #for train
 
 pca = joblib.load('./pca_110.pkl')
 svm = joblib.load('./svm_c1.5_com110.pkl')
