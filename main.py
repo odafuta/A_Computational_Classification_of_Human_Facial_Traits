@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 from sklearn.svm import SVC
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
-
+import joblib
 
 #create a file './ad_data' and add the files have the images of faces which can be animals or humans
 #I use four animals faces each has 450 images, we can change as humans or add more images to improve the acc rate.
@@ -62,6 +62,8 @@ def xSVM(components = 110, C = 1.5, kernel = 'rbf', gamma = 'scale'):
     svm.fit(x_train_pca, y_train)
     y_pred = svm.predict(x_test_pca)
     print("Acc rate:", accuracy_score(y_test, y_pred))
+    joblib.dump(pca, f'./pca_{components}.pkl')
+    joblib.dump(svm, f'./svm_c{C}_com{components}.pkl')
     return accuracy_score(y_test, y_pred), pca, svm
 
 #The first three are the range and step size of components, then are them of C.
@@ -116,6 +118,9 @@ def imgEva(eva_path = './eva.jpg'):
 
 x, y = imgLoad()
 
-acc, pca, svm = xSVM()
+#acc, pca, svm = xSVM() #for train
+
+pca = joblib.load('./pca_110.pkl')
+svm = joblib.load('./svm_c1.5_com110.pkl')
 
 imgEva()
