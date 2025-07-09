@@ -116,11 +116,12 @@ def imgEva(eva_path = './eva.jpg'):
     animals = ['cat_like', 'dog_like', 'fox_like', 'tiger_like']
     print("eva res:", animals[id])
 
-# x, y = imgLoad()
+if __name__ == "__main__":
+    # x, y = imgLoad()
 
-# acc, pca, svm = xSVM(x, y) #for train
+    # acc, pca, svm = xSVM()
 
-pca = joblib.load('./pca_110.pkl')
-svm = joblib.load('./svm_c1.5_com110.pkl')
+    pca = joblib.load('./pca_110.pkl')
+    svm = joblib.load('./svm_c1.5_com110.pkl')
 
-imgEva()
+    imgEva()
