@@ -1,1 +1,54 @@
-docs/mprovement_plan.md
+# Documentation files to ignore
+docs/improvement_plan.md
+
+# Large datasets and model files
+data/
+
+# Virtual environment
+facial_classification_env/
+
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Large files
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# Model files
+*.pkl
+*.h5
+*.model
+*.weights
+
+# Log files
+*.log
