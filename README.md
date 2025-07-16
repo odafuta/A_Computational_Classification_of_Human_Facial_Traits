@@ -51,7 +51,7 @@ data/af_data_new/
 ├── cat/          # Cat images
 ├── dog/          # Dog images  
 ├── wild/         # Wild animal images
-└── human_like_animal/  # Human test images (30 images)
+└── human_like_animal/  # Human test images (30 images) (already exist)
 ```
 
 ---
@@ -84,7 +84,7 @@ python main_updated.py --use-existing
 - `main.py` - Simple classification script
 - `main_updated.py` - Advanced implementation with evaluation
 - `requirements.txt` - Python dependencies
-- `data/` - Dataset directory (not in git)
+- `data/` - Dataset directory (not in git except for data/af_data_new/human_like_animal)
 - `models/` - Trained models
 - `results/` - Results and visualizations
 - `docs/` - Technical reports
