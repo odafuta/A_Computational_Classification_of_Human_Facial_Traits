@@ -1,10 +1,6 @@
 # A Computational Classification of Human Facial Traits
 ## Which Animal Are You? 🐱🐶🦊
 
-**Assignment 2 - International Fusion Science Course**  
-**Dr. Suyong Eum**  
-**Osaka University**
-
 ---
 
 ## Overview
