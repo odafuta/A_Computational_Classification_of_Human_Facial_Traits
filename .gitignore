@@ -53,7 +53,11 @@ Thumbs.db
 # Log files
 *.log
 
-results/
-models/
+# Results and models - ignore all except specific directories
+results/*
 !results/20250719_161924/
+models/*
 !models/20250719_161924/
+# Allow specific pkl files in the tracked directories
+!models/20250719_161924/*.pkl
+!results/20250719_161924/*.pkl
