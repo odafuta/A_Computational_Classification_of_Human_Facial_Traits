@@ -36,17 +36,8 @@ pip install -r requirements.txt
 A dataset of 450 x 3 classes + 30 `human_like_animal` images for training and evaluation is available.
 
 ```bash
-# 1 行でダウンロード & 展開
-title="Download af_data_new from HF Hub" && \
-python - <<'PY'
-from huggingface_hub import snapshot_download
-snapshot_download(
-    repo_id="yourname/facial_traits_af_data_new",  # ← あなたの HF repo ID に置換
-    repo_type="dataset",
-    local_dir="data/af_data_new",
-    local_dir_use_symlinks=False
-)
-PY
+# One-click download & unzip
+python scripts/download_af_data_new.py
 ```
 
 ### 3. Organize Data

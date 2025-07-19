@@ -1,38 +1,56 @@
 #!/usr/bin/env python3
 """
-Download pre-sampled `af_data_new` dataset (cat/dog/tiger 450 each + human_like_animal 30)
-from Hugging Face Hub.
+Download pre-sampled `af_data_new` dataset from Hugging Face Hub.
+Contains: cat/dog/tiger (450 each) + human_like_animal (30 images)
 
-Usage (default repo id is placeholder, replace with your own):
-    python scripts/download_af_data_new.py \
-        --repo yourname/facial_traits_af_data_new \
-        --out-dir data/af_data_new
+Usage:
+    python scripts/download_af_data_new.py
 """
 from pathlib import Path
-import argparse
 from huggingface_hub import snapshot_download
 
 def main():
-    parser = argparse.ArgumentParser(description="Download af_data_new dataset from HF Hub")
-    parser.add_argument("--repo", default="yourname/facial_traits_af_data_new",
-                        help="Hugging Face Hub dataset repo id")
-    parser.add_argument("--out-dir", default="data/af_data_new",
-                        help="Local directory to place the dataset")
-    parser.add_argument("--no-symlinks", action="store_true",
-                        help="Disable symlinks (Windows recommended)")
-    args = parser.parse_args()
-
-    out_dir = Path(args.out_dir).expanduser()
+    # Fixed configuration for reproducibility
+    repo_id = "futa-06/A_Computational_Classification_of_Human_Facial_Traits"  # ← Replace with your HF repo ID
+    out_dir = Path("data/af_data_new")
+    
+    print(f"Downloading af_data_new dataset from '{repo_id}'...")
+    print(f"Target directory: {out_dir}")
+    
+    # Create output directory
     out_dir.mkdir(parents=True, exist_ok=True)
-
-    print(f"Downloading dataset '{args.repo}' to {out_dir} …")
+    
+    # Download dataset
     snapshot_download(
-        repo_id=args.repo,
+        repo_id=repo_id,
         repo_type="dataset",
         local_dir=str(out_dir),
-        local_dir_use_symlinks=not args.no_symlinks,
+        local_dir_use_symlinks=False,  # Windows compatibility
     )
-    print("Download complete.")
+    
+    print("Download complete!")
+    
+    # Verify downloaded files
+    print(f"\nVerifying downloaded files...")
+    total_files = 0
+    for subdir in ['cat', 'dog', 'tiger', 'human_like_animal']:
+        subdir_path = out_dir / subdir
+        if subdir_path.exists():
+            files = list(subdir_path.glob("*.jpg")) + list(subdir_path.glob("*.png"))
+            print(f"  {subdir}: {len(files)} images")
+            total_files += len(files)
+        else:
+            print(f"  {subdir}: directory not found")
+    
+    print(f"Total: {total_files} images downloaded")
+    
+    print(f"\nDataset structure:")
+    print(f"  {out_dir}/")
+    print(f"  ├── cat/    (450 images)")
+    print(f"  ├── dog/    (450 images)")
+    print(f"  ├── tiger/  (450 images)")
+    print(f"  └── human_like_animal/ (30 images)")
+    print(f"\nReady to run: python main_simple.py")
 
 if __name__ == "__main__":
     main() 
