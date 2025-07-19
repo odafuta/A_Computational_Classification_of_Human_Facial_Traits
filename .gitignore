@@ -2,11 +2,7 @@
 docs/improvement_plan.md
 
 # Large datasets and model files
-data/af_data
-data/kaggle_raw
-data/af_data_new/cat
-data/af_data_new/dog
-data/af_data_new/wild
+data/
 
 # Virtual environment
 facial_classification_env/
