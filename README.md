@@ -28,31 +28,39 @@ facial_classification_env\Scripts\activate
 # Activate (Linux/Mac)
 source facial_classification_env/bin/activate
 
-# Install packages
+# Install packages (incl. huggingface_hub)
 pip install -r requirements.txt
 ```
 
-### 2. Download Dataset
+### 2. Download Prepared Dataset (Hugging Face Hub)
+A dataset of 450 x 3 classes + 30 `human_like_animal` images for training and evaluation is available.
+
 ```bash
-# Install Kaggle API
-pip install kaggle
-
-# Configure credentials (place kaggle.json in ~/.kaggle/)
-kaggle datasets download -d andrewmvd/animal-faces
-
-# Extract
-unzip animal-faces.zip -d data/kaggle_raw/
+# 1 行でダウンロード & 展開
+title="Download af_data_new from HF Hub" && \
+python - <<'PY'
+from huggingface_hub import snapshot_download
+snapshot_download(
+    repo_id="yourname/facial_traits_af_data_new",  # ← あなたの HF repo ID に置換
+    repo_type="dataset",
+    local_dir="data/af_data_new",
+    local_dir_use_symlinks=False
+)
+PY
 ```
 
 ### 3. Organize Data
-Manually organize images into:
+
 ```
 data/af_data_new/
-├── cat/          # Cat images
-├── dog/          # Dog images  
-├── wild/         # Wild animal images
-└── human_like_animal/  # Human test images (30 images) (already exist)
+├── cat/    (450 images)
+├── dog/    (450 images)
+├── tiger/  (450 images)
+└── human_like_animal/ (30 images)
 ```
+
+Then, you can run `python main_simple.py`.
+
 
 ---
 
