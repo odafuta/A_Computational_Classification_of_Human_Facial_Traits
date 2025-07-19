@@ -53,5 +53,7 @@ Thumbs.db
 # Log files
 *.log
 
+results/
+models/
 !results/20250719_161924/
 !models/20250719_161924/
