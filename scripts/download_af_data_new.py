@@ -8,6 +8,40 @@ Usage:
 """
 from pathlib import Path
 from huggingface_hub import snapshot_download
+import tarfile
+import os
+import shutil
+
+def extract_tar_gz(tar_path, extract_dir):
+    """ Extract the tar.gz file """
+    print(f"Unzipping: {tar_path}")
+    with tarfile.open(tar_path, 'r:gz') as tar:
+        tar.extractall(extract_dir)
+    print("Unzipped!")
+
+def move_data_to_correct_location(out_dir):
+    """Move expanded data to the correct location"""
+    nested_dir = out_dir / "af_data_new"
+    if nested_dir.exists():
+        print(f"Moving data from {nested_dir} to {out_dir}")
+        
+        # Move each subdirectory
+        for subdir in ['cat', 'dog', 'tiger', 'human_like_animal']:
+            src = nested_dir / subdir
+            dst = out_dir / subdir
+            
+            if src.exists():
+                if dst.exists():
+                    shutil.rmtree(dst)  # Delete existing directory
+                shutil.move(str(src), str(dst))
+                print(f"  Moved {subdir}/")
+        
+        # Delete the empty nested_dir
+        try:
+            nested_dir.rmdir()
+            print(f"  Removed empty directory: {nested_dir}")
+        except OSError:
+            print(f"  Warning: Could not remove {nested_dir} (may not be empty)")
 
 def main():
     # Fixed configuration for reproducibility
@@ -29,6 +63,21 @@ def main():
     )
     
     print("Download complete!")
+    
+    # Unzip the compressed file
+    tar_gz_path = out_dir / "af_data_new.tar.gz"
+    if tar_gz_path.exists():
+        print(f"\nUnzipping the compressed file...")
+        extract_tar_gz(tar_gz_path, out_dir)
+        
+        # Move the data to the correct location
+        move_data_to_correct_location(out_dir)
+        
+        # Delete the compressed file
+        tar_gz_path.unlink()
+        print("Compressed file removed")
+    else:
+        print(f"Compressed file not found: {tar_gz_path}")
     
     # Verify downloaded files
     print(f"\nVerifying downloaded files...")

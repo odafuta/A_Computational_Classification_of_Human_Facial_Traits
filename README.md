@@ -72,6 +72,9 @@ python main.py
 # Train new model
 python main_updated.py
 
+# now latest model of us
+python main_simple.py --model-dir models/20250719_161924
+
 # Use existing model
 python main_updated.py --use-existing
 ```
