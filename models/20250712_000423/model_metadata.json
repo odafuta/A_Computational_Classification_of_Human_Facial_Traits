@@ -1,0 +1,44 @@
+{
+  "timestamp": "20250712_000423",
+  "class_names": [
+    "cat",
+    "dog",
+    "wild"
+  ],
+  "pca_components": 110,
+  "pca_explained_variance": 0.8089398873463488,
+  "svm_params": {
+    "C": 10,
+    "break_ties": false,
+    "cache_size": 200,
+    "class_weight": null,
+    "coef0": 0.0,
+    "decision_function_shape": "ovr",
+    "degree": 3,
+    "gamma": 0.01,
+    "kernel": "rbf",
+    "max_iter": -1,
+    "probability": true,
+    "random_state": null,
+    "shrinking": true,
+    "tol": 0.001,
+    "verbose": false
+  },
+  "model_files": {
+    "pca": "pca_model.pkl",
+    "svm": "svm_model.pkl",
+    "scaler": "scaler.pkl"
+  },
+  "total_animal_images": 14630,
+  "total_human_images": 30,
+  "train_size": 11704,
+  "test_size": 2926,
+  "test_accuracy": 0.872863978127136,
+  "image_size": [
+    128,
+    128
+  ],
+  "feature_dim_original": 16384,
+  "feature_dim_pca": 110,
+  "approach": "human_to_animal_classification"
+}

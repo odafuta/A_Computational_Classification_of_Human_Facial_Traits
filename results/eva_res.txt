@@ -1,0 +1,33 @@
+Real animal: cat -> svm eva: dog_like -> yolo eva: dog
+Real animal: cat -> svm eva: dog_like -> yolo eva: dog
+Real animal: cat -> svm eva: dog_like -> yolo eva: cat
+Real animal: cat -> svm eva: dog_like -> yolo eva: dog
+Real animal: cat -> svm eva: dog_like -> yolo eva: cat
+Real animal: cat -> svm eva: dog_like -> yolo eva: dog
+Real animal: cat -> svm eva: cat_like -> yolo eva: cat
+Real animal: cat -> svm eva: dog_like -> yolo eva: cat
+Real animal: cat -> svm eva: dog_like -> yolo eva: dog
+Real animal: cat -> svm eva: dog_like -> yolo eva: dog
+svm rate: 0.1 -> yolo rate: 0.4
+Real animal: dog -> svm eva: wild -> yolo eva: cat
+Real animal: dog -> svm eva: wild -> yolo eva: dog
+Real animal: dog -> svm eva: dog_like -> yolo eva: dog
+Real animal: dog -> svm eva: wild -> yolo eva: dog
+Real animal: dog -> svm eva: dog_like -> yolo eva: dog
+Real animal: dog -> svm eva: cat_like -> yolo eva: wild
+Real animal: dog -> svm eva: dog_like -> yolo eva: dog
+Real animal: dog -> svm eva: dog_like -> yolo eva: dog
+Real animal: dog -> svm eva: dog_like -> yolo eva: dog
+Real animal: dog -> svm eva: dog_like -> yolo eva: dog
+svm rate: 0.6 -> yolo rate: 0.8
+Real animal: wild -> svm eva: dog_like -> yolo eva: wild
+Real animal: wild -> svm eva: dog_like -> yolo eva: dog
+Real animal: wild -> svm eva: dog_like -> yolo eva: cat
+Real animal: wild -> svm eva: wild -> yolo eva: wild
+Real animal: wild -> svm eva: cat_like -> yolo eva: wild
+Real animal: wild -> svm eva: cat_like -> yolo eva: wild
+Real animal: wild -> svm eva: wild -> yolo eva: wild
+Real animal: wild -> svm eva: dog_like -> yolo eva: wild
+Real animal: wild -> svm eva: cat_like -> yolo eva: cat
+Real animal: wild -> svm eva: dog_like -> yolo eva: wild
+svm rate: 0.0 -> yolo rate: 0.7

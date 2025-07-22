@@ -1,6 +1,13 @@
 # A Computational Classification of Human Facial Traits
 ## Which Animal Are You? 🐱🐶🦊
 
+<<<<<<< HEAD
+=======
+**Assignment 2 - International Fusion Science Course**  
+**Dr. Suyong Eum**  
+**Osaka University**
+
+>>>>>>> main
 ---
 
 ## Overview
@@ -65,10 +72,10 @@ Then, you can run `python main_simple.py`.
 python main_simple.py --model-dir models/20250719_161924
 
 # Train new model
-python main_updated.py
+python main_simple.py
 
 # Use existing model
-python main_updated.py --use-existing
+python main_simple.py --use-existing
 ```
 
 ---
