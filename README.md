@@ -1,15 +1,6 @@
 # A Computational Classification of Human Facial Traits
 ## Which Animal Are You? 🐱🐶🦊
 
-<<<<<<< HEAD
-=======
-**Assignment 2 - International Fusion Science Course**  
-**Dr. Suyong Eum**  
-**Osaka University**
-
->>>>>>> main
----
-
 ## Overview
 
 Machine learning system to classify human facial traits using animal face classifiers (PCA + SVM).
