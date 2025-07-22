@@ -1,10 +1,13 @@
 # A Computational Classification of Human Facial Traits
 ## Which Animal Are You? 🐱🐶🦊
 
+<<<<<<< HEAD
+=======
 **Assignment 2 - International Fusion Science Course**  
 **Dr. Suyong Eum**  
 **Osaka University**
 
+>>>>>>> main
 ---
 
 ## Overview
@@ -16,11 +19,18 @@ Machine learning system to classify human facial traits using animal face classi
 ---
 
 ## Setup
+### 0. git clone
+```bash
+git clone https://github.com/odafuta/A_Computational_Classification_of_Human_Facial_Traits.git
+```
 
 ### 1. Install Dependencies
 ```bash
 # Create virtual environment
 python -m venv facial_classification_env
+
+# GitBash
+source facial_classification_env/Scripts/activate
 
 # Activate (Windows)
 facial_classification_env\Scripts\activate
@@ -28,64 +38,54 @@ facial_classification_env\Scripts\activate
 # Activate (Linux/Mac)
 source facial_classification_env/bin/activate
 
-# Install packages
+# Install packages (take a few menutes) (incl. huggingface_hub)
 pip install -r requirements.txt
 ```
 
-### 2. Download Dataset
+### 2. Download Prepared Dataset (Hugging Face Hub)
+A dataset of 450 x 3 classes + 30 `human_like_animal` images for training and evaluation is available.
+
 ```bash
-# Install Kaggle API
-pip install kaggle
-
-# Configure credentials (place kaggle.json in ~/.kaggle/)
-kaggle datasets download -d andrewmvd/animal-faces
-
-# Extract
-unzip animal-faces.zip -d data/kaggle_raw/
+# One-click download & unzip
+python scripts/download_af_data_new.py
 ```
 
 ### 3. Organize Data
-Manually organize images into:
+
 ```
 data/af_data_new/
-├── cat/          # Cat images
-├── dog/          # Dog images  
-├── wild/         # Wild animal images
-└── human_like_animal/  # Human test images (30 images) (already exist)
+├── cat/    (450 images)
+├── dog/    (450 images)
+├── tiger/  (450 images)
+└── human_like_animal/ (30 images)
 ```
+
+Then, you can run `python main_simple.py`.
+
 
 ---
 
 ## Usage
 
-### wang sann Version
 ```bash
-# Activate environment
-# Windows: facial_classification_env\Scripts\activate
-# Linux/Mac: source facial_classification_env/bin/activate
+# (reccomend at farst execution) now latest model of us
+python main_simple.py --model-dir models/20250719_161924
 
-# Run the simple version
-python main.py
-```
-
-### odafuta Version
-```bash
 # Train new model
-python main_updated.py
+python main_simple.py
 
 # Use existing model
-python main_updated.py --use-existing
+python main_simple.py --use-existing
 ```
 
 ---
 
 ## Files
 
-- `main.py` - Simple classification script
-- `main_updated.py` - Advanced implementation with evaluation
+- `main.py` - PCA/SVC classification script
 - `requirements.txt` - Python dependencies
-- `data/` - Dataset directory (not in git except for data/af_data_new/human_like_animal)
-- `models/` - Trained models
+- `data/` - Dataset directory (be made by executing the command above for downloading from my hugging face dataset)
+- `models/` - Trained models 
 - `results/` - Results and visualizations
 - `docs/` - Technical reports
 
@@ -101,11 +101,6 @@ python main_updated.py --use-existing
 - Seaborn (statistical plots)
 - Pandas (data manipulation)
 - Joblib (model persistence)
+- Hugging Face API for dataset download
 - Kaggle API for dataset download
 ---
-
-## Academic Info
-
-- **Email**: suyong@ist.osaka-u.ac.jp
-- **Subject**: "G[X]-assignment2" 
-- **Deadline**: July 24 

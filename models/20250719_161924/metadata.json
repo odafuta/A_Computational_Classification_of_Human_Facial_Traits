@@ -1,0 +1,46 @@
+{
+  "timestamp": "20250719_161924",
+  "class_names": [
+    "cat",
+    "dog",
+    "tiger"
+  ],
+  "image_size": [
+    128,
+    128
+  ],
+  "feature_dim_original": 16384,
+  "feature_dim_pca": 110,
+  "pca_explained_variance": 0.8230429815443329,
+  "svm_params": {
+    "C": 10,
+    "break_ties": false,
+    "cache_size": 200,
+    "class_weight": null,
+    "coef0": 0.0,
+    "decision_function_shape": "ovr",
+    "degree": 3,
+    "gamma": "scale",
+    "kernel": "rbf",
+    "max_iter": -1,
+    "probability": false,
+    "random_state": null,
+    "shrinking": true,
+    "tol": 0.001,
+    "verbose": false
+  },
+  "cv_score": 0.8305133400878081,
+  "cv_std": 0.019468018634636413,
+  "val_score": 0.8177339901477833,
+  "test_score": 0.8768472906403941,
+  "train_size": 944,
+  "val_size": 203,
+  "test_size": 203,
+  "best_params": {
+    "svc__C": 10,
+    "svc__gamma": "scale",
+    "svc__kernel": "rbf"
+  },
+  "total_images": 1350,
+  "model_file": "pipeline.pkl"
+}

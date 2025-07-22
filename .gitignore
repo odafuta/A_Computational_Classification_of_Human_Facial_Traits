@@ -2,11 +2,8 @@
 docs/improvement_plan.md
 
 # Large datasets and model files
-data/af_data
-data/kaggle_raw
-data/af_data_new/cat
-data/af_data_new/dog
-data/af_data_new/wild
+data/
+
 
 # Virtual environment
 facial_classification_env/
@@ -56,3 +53,12 @@ Thumbs.db
 
 # Log files
 *.log
+
+# Results and models - ignore all except specific directories
+results/*
+!results/20250719_161924/
+models/*
+!models/20250719_161924/
+# Allow specific pkl files in the tracked directories
+!models/20250719_161924/*.pkl
+!results/20250719_161924/*.pkl
